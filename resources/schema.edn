@@ -1,0 +1,147 @@
+
+{:simulation/model
+ {:txes
+  [[{:db/id #db/id[:db.part/db]
+     :db/ident :model/name
+     :db/valueType :db.type/string
+     :db/doc "Unique model name."
+     :db/unique :db.unique/value
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :model.type/sample
+     :db/doc "Load testing via Simulant."}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :model/description
+     :db/valueType :db.type/string
+     :db/doc "Description of this model."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}]]}
+
+ :simulation/test
+ {:txes
+  [[{:db/id #db/id[:db.part/db]
+     :db/ident :action.type/retrieve-count}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :action.type/increment-count}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :action.type/decrement-count}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :test.type/sample}
+
+    {:db/id #db/id [:db.part/db]
+     :db/ident :agent.type/robot}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :agent/number
+     :db/valueType :db.type/long
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :test/name
+     :db/valueType :db.type/string
+     :db/doc "Unique test name."
+     :db/unique :db.unique/value
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :test/host
+     :db/valueType :db.type/string
+     :db/doc "Host (and optional port) for the system under test."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+
+    {:db/id #db/id[:db.part/db]
+     :db/ident :test/agentCount
+     :db/valueType :db.type/long
+     :db/doc "Number of agents active during test."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}]]}
+
+ :simulation/actionLog
+ {:txes
+  [[{:db/id #db/id[:db.part/db]
+     :db/ident :actionLog/contentType
+     :db/valueType :db.type/string
+     :db/doc "Content-Type header returned by the API."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :actionLog/responseCode
+     :db/valueType :db.type/long
+     :db/doc "HTTP response code returned by the API."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :actionLog/responseMap
+     :db/valueType :db.type/string
+     :db/doc "Entire HTTP response returned by the API."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :actionLog/requestURL
+     :db/valueType :db.type/string
+     :db/doc "Request URL."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :actionLog/apiResponse
+     :db/valueType :db.type/string
+     :db/doc "Response string extracted from API response."
+     :db/cardinality :db.cardinality/one
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :actionLog/exceptions
+     :db/valueType :db.type/ref
+     :db/doc "Exceptions that occurred while performing an action."
+     :db/cardinality :db.cardinality/many
+     :db/isComponent true
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :exception/type
+     :db/valueType :db.type/string
+     :db/cardinality :db.cardinality/one
+     :db/doc "Class name of the exception."
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :exception/message
+     :db/valueType :db.type/string
+     :db/cardinality :db.cardinality/one
+     :db/doc "Text of the exception's message."
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :exception/stackTrace
+     :db/valueType :db.type/string
+     :db/cardinality :db.cardinality/one
+     :db/doc "Printed version of the stack trace from the exception."
+     :db.install/_attribute :db.part/db}
+    {:db/id #db/id[:db.part/db]
+     :db/ident :exception/cause
+     :db/valueType :db.type/ref
+     :db/cardinality :db.cardinality/one
+     :db/doc "Root cause for the exception."
+     :db/isComponent true
+     :db.install/_attribute :db.part/db}]]}
+
+ :simulation/exception-data
+ {:txes
+  [[{:db/id #db/id[:db.part/db]
+     :db/ident :exception/exceptionData
+     :db/valueType :db.type/string
+     :db/cardinality :db.cardinality/one
+     :db/doc "JSON-ified version of ex-data"
+     :db.install/_attribute :db.part/db}]]}
+
+  :simulation/sim-codebases
+  {:txes
+   [[{:db/id #db/id[:db.part/db]
+      :db/ident :sim/codebases
+      :db/valueType :db.type/ref
+      :db/doc "Codebase entities for hosts sim will interact with."
+      :db/cardinality :db.cardinality/many
+      :db.install/_attribute :db.part/db}
+     {:db/id #db/id[:db.part/db]
+      :db/ident :codebase/host
+      :db/valueType :db.type/string
+      :db/doc "Host codebase information was gathered from."
+      :db/cardinality :db.cardinality/one
+      :db.install/_attribute :db.part/db}]]}}
