@@ -5,8 +5,7 @@
             [simulation.model :refer [create-model!]]
             [simulation.test :refer [create-test!]]
             [simulation.sim :refer [run-sim!] :as sim]
-            ; [simulation.validations :refer [validate]]
-            )
+            [simulation.validations :refer [validate]])
   (:refer-clojure :exclude [test]))
 
 (def model-name "repl-model")
@@ -44,6 +43,5 @@
 
 ;; 4. Validate the sim. Returns any validation errors.
 (def latest-sim (sim/latest-sim (d/db (d/connect uri)) test-name))
-; (def errors (validate uri latest-sim))
-; (clojure.pprint/pprint errors)
-
+(def errors (validate uri latest-sim))
+(when-not (empty? errors) (clojure.pprint/pprint errors))

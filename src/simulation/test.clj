@@ -81,7 +81,7 @@
         (tx-ent (e test)))))
 
 (defn create-test!
-  "Persist a test and its metadata to the database"
+  "Persist a test and its metadata to the database."
   [uri model-name test-name host duration agent-count]
   (let [conn     (d/connect uri)
         test-def {:db/id           (d/tempid :test)
@@ -94,7 +94,13 @@
     (assert model (str "Model " model-name " must exist to create a test"))
     (sim/create-test conn model test-def)))
 
+(defn find-by-name
+  "Lookup a test entity by name."
+  [db test-name]
+  (d/entity db [:test/name test-name]))
+
 (defn list-tests
+  "Return a collection of tests contained in a database."
   [db]
   (->> (d/q '[:find ?m
               :where [?m :test/name]]

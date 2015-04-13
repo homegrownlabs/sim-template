@@ -6,6 +6,7 @@
             [datomic.api :as d]
             [cheshire.core :as json]
             [clj-http.client :as http]
+            [simulation.test :as test]
             [simulation.util :as util]))
 
 (defmethod sim/create-sim :test.type/sample
@@ -13,10 +14,9 @@
   (-> @(d/transact conn (sim/construct-basic-sim test sim))
       (tx-ent (e sim))))
 
-;; TODO: Move to test.clj
-(defn- find-test [context]
+(defn find-test [context]
   (let [{:keys [conn test-name]} context
-        test                     (d/entity (d/db conn) [:test/name test-name])]
+        test                     (test/find-by-name (d/db conn) test-name)]
     (assert test (str "Test with name " test-name " must exist."))
     (assoc context :test test)))
 
