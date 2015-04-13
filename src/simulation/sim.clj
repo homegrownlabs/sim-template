@@ -108,13 +108,21 @@
        (map #(zipmap [:sim :test-name :created] %))))
 
 (defn sims-for-test [db test-name]
-  (->> (d/q '[:find ?sim ?created
+  (->> (d/q '[:find ?sim ?test-name ?created
               :in $ ?test
               :where
               [?test :test/sims ?sim ?tx]
+              [?test :test/name ?test-name]
               [?tx :db/txInstant ?created]]
             db [:test/name test-name])
-       (map #(zipmap [:sim :created] %))))
+       (map #(zipmap [:sim :test-name :created] %))))
+
+(defn list-sims
+  "Return listing of sims in database."
+  [db test-name]
+  (if test-name
+    (sims-for-test db test-name)
+    (all-sims db)))
 
 (defn latest-sim [db test-name]
   (->> (sims-for-test db test-name)

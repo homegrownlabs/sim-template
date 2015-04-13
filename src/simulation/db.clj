@@ -1,6 +1,7 @@
 (ns simulation.db
   "Bootstrap functions to install schema into the backing Datomic store."
   (:require [clojure.java.io :as io]
+            [clojure.tools.logging :as l]
             [datomic.api :as d]
             [io.rkn.conformity :as c]))
 
@@ -15,6 +16,7 @@
 (defn bootstrap!
   "Bootstrap schema into the database."
   [uri]
+  (l/info "Bootstrapping database" uri)
   (d/create-database uri)
   (let [conn (d/connect uri)]
     (doseq [rsc ["simulant.edn" ;; Simulant's base schema

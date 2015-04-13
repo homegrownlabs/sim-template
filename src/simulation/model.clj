@@ -65,7 +65,7 @@
 
 (defn create-model!
   "Persist a model and its metadata to the database"
-  [uri name description & {:as opts}]
+  [uri name description type]
   (let [conn     (d/connect uri)
         model-id (d/tempid :model)
         model    (cond-> {:db/id model-id
