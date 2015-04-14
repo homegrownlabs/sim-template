@@ -1,4 +1,4 @@
-(ns simulation.db
+(ns {{namespace}}.db
   "Bootstrap functions to install schema into the backing Datomic store."
   (:require [clojure.java.io :as io]
             [clojure.tools.logging :as l]

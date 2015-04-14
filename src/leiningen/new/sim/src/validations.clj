@@ -1,9 +1,9 @@
-(ns simulation.validations
+(ns {{namespace}}.validations
   "Queries used to validate a completed sim run."
-  (:require [datomic.api :as d]
+  (:require [simulant.util :refer [solo e]]
+            [datomic.api :as d]
             [clojure.edn :as edn]
-            [cheshire.core :as json]
-            [simulant.util :refer [solo e]]))
+            [cheshire.core :as json]))
 
 ;; == Validations ==========================================
 

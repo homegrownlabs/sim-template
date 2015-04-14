@@ -29,39 +29,48 @@
                   [org.slf4j/slf4j-api "1.7.6"]
                   [ch.qos.logback/logback-classic "1.1.1"]])
 
+
 ;; Load Datomic data readers
 (#'clojure.core/load-data-readers)
 (set! *data-readers* (.getRawRoot #'*data-readers*))
 
+(def +version+ "0.1.0")
+
+(task-options! pom {:project '{{name}}
+                    :version +version+
+                    :description "FIXME: write description"
+                    :license {"License Name" "All Rights Reserved"}})
+
+
+;; Setup boot-sim for interacting with sims from the command-line
 (require '[io.homegrown.boot-sim :refer :all])
 
 (def datomic-uri "datomic:free://localhost:4334/sample-sim")
 
-;; Setup boot-sim for interacting with sims from the command-line
 (task-options!
   bootstrap       {:uri datomic-uri
-                   :bootstrap-fn 'simulation.db/bootstrap!}
+                   :bootstrap-fn '{{namespace}}.db/bootstrap!}
   create-model    {:uri datomic-uri
-                   :create-fn 'simulation.model/create-model!
+                   :create-fn '{{namespace}}.model/create-model!
                    :type :model.type/sample}
   list-models     {:uri datomic-uri
-                   :list-fn 'simulation.model/list-models}
+                   :list-fn '{{namespace}}.model/list-models}
   create-test     {:uri datomic-uri
-                   :create-fn 'simulation.test/create-test!
+                   :create-fn '{{namespace}}.test/create-test!
                    :host-name "http://dockerhost:8080"
                    :duration 1
                    :concurrency 1}
   list-tests      {:uri datomic-uri
-                   :list-fn 'simulation.test/list-tests}
+                   :list-fn '{{namespace}}.test/list-tests}
   run-sim         {:uri datomic-uri
-                   :run-fn 'simulation.sim/run-sim!
+                   :run-fn '{{namespace}}.sim/run-sim!
                    :processes 1
                    :speed 1}
   list-sims       {:uri datomic-uri
-                   :list-fn 'simulation.sim/list-sims}
+                   :list-fn '{{namespace}}.sim/list-sims}
   validate-sim    {:uri datomic-uri
-                   :validate-fn 'simulation.validations/validate}
+                   :validate-fn '{{namespace}}.validations/validate}
   validate-latest {:uri datomic-uri
-                   :validate-fn 'simulation.validations/validate
-                   :lookup-fn 'simulation.sim/latest-sim})
+                   :validate-fn '{{namespace}}.validations/validate
+                   :lookup-fn '{{namespace}}.sim/latest-sim})
 

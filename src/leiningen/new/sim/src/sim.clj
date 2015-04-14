@@ -1,4 +1,4 @@
-(ns simulation.sim
+(ns {{namespace}}.sim
   "This namespace contains the logic for creating and running a simulation."
   (:require [clojure.tools.logging :as l]
             [simulant.sim :as sim]
@@ -6,8 +6,8 @@
             [datomic.api :as d]
             [cheshire.core :as json]
             [clj-http.client :as http]
-            [simulation.test :as test]
-            [simulation.util :as util]))
+            [{{namespace}}.test :as test]
+            [{{namespace}}.util :as util]))
 
 (defmethod sim/create-sim :test.type/sample
   [conn test sim]
@@ -59,7 +59,7 @@
 (defn- setup-actions
   "Require action namespaces, so their multimethod definitions get loaded."
   [context]
-  (require 'simulation.actions.sample)
+  (require '{{namespace}}.actions.sample)
   context)
 
 (defn- start-sim

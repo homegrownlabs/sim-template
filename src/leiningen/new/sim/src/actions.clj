@@ -1,4 +1,4 @@
-(ns simulation.actions
+(ns {{namespace}}.actions
   "Support for actions, incl. logging success or failure to the action log."
   (:require [simulant.sim :as sim]
             [simulant.util :refer [e solo only]]

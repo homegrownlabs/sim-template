@@ -1,11 +1,11 @@
-(ns simulation.model
+(ns {{namespace}}.model
   "This namespace describes potential agent interactions with a system, as well
   as functions for realizing that non-deterministic behavior into a fixed
   simulant 'test'."
   (:require [simulant.util :refer [tx-ent]]
             [datomic.api :as d]
             [causatum.event-streams :as es]
-            [simulation.util :as util]))
+            [{{namespace}}.util :as util]))
 
 (def agent-behavior
  ;; from-state to-state  weight  max-delay (ms)

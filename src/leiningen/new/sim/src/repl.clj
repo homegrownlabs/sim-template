@@ -1,11 +1,11 @@
-(ns simulation.repl
+(ns {{namespace}}.repl
   "REPL-driven example of creating and running a sim."
   (:require [datomic.api :as d]
-            [simulation.db :as db]
-            [simulation.model :refer [create-model!]]
-            [simulation.test :refer [create-test!]]
-            [simulation.sim :refer [run-sim!] :as sim]
-            [simulation.validations :refer [validate]])
+            [{{namespace}}.db :as db]
+            [{{namespace}}.model :refer [create-model!]]
+            [{{namespace}}.test :refer [create-test!]]
+            [{{namespace}}.sim :refer [run-sim!] :as sim]
+            [{{namespace}}.validations :refer [validate]])
   (:refer-clojure :exclude [test]))
 
 (def model-name "repl-model")

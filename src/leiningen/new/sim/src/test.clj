@@ -1,4 +1,4 @@
-(ns simulation.test
+(ns {{namespace}}.test
   "This namespace contains the logic for realizing a non-deterministic model
   into a fixed test, consisting of test metadata, agents, and their planned
   actions.
@@ -7,12 +7,12 @@
   where you should realize that content. Clojure's clojure.data.generators
   contains a number of useful functions for generating content, but you will
   need to write your domain-specific generators."
-  (:require [simulant.sim :as sim]
-            [simulant.util :refer [e tx-ent]]
+  (:require [clojure.tools.logging :as l]
             [datomic.api :as d]
-            [simulation.model :as m]
-            [simulation.util :as util]
-            [clojure.tools.logging :as l]))
+            [simulant.sim :as sim]
+            [simulant.util :refer [e tx-ent]]
+            [{{namespace}}.model :as m]
+            [{{namespace}}.util :as util]))
 
 (defn- action
   "Generate a Simulant action entity, given an agent, it's state, and type.

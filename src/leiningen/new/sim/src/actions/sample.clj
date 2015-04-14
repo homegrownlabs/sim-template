@@ -1,4 +1,4 @@
-(ns simulation.actions.sample
+(ns {{namespace}}.actions.sample
   "Agent actions for the included sample service. These functions are where the
   rubber meats the road and your sim communicates with the target system."
   (:require [clojure.tools.logging :as l]
@@ -7,7 +7,7 @@
             [simulant.util :as util :refer [e solo]]
             [cheshire.core :as json]
             [clj-http.client :as http]
-            [simulation.actions :refer [log log-error timed]]))
+            [{{namespace}}.actions :refer [log log-error timed]]))
 
 (defn retrieve-count [host]
   (http/get host))

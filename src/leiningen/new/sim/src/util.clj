@@ -1,5 +1,4 @@
-;; TODO: Consider pulling this into a library
-(ns simulation.util
+(ns {{namespace}}.util
   (:require [simulant.util :refer [git-repo-uri git-latest-sha]]
             [datomic.api :as d]))
 
