@@ -5,7 +5,7 @@
 (def render (renderer "sim"))
 
 (defn sim
-  "FIXME: write documentation"
+  "Generate a sim project"
   [name]
   (let [sanitized-ns (sanitize-ns name)
         data {:raw-name name
