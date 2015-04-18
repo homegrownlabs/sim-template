@@ -1,11 +1,11 @@
-(ns leiningen.new.sim
+(ns leiningen.new.sim-test
   (:require [leiningen.new.templates :refer [renderer name-to-path ->files sanitize-ns project-name]]
             [leiningen.core.main :as main]))
 
-(def render (renderer "sim"))
+(def render (renderer "sim-test"))
 
-(defn sim
-  "Generate a sim project"
+(defn sim-test
+  "Generate a sim-test project"
   [name]
   (let [sanitized-ns (sanitize-ns name)
         data {:raw-name name
@@ -13,7 +13,7 @@
               :namespace sanitized-ns
               :sanitized (name-to-path sanitized-ns)
               :namespace-set (str "'#{" namespace "}")}]
-    (main/info "Generating fresh 'lein new' sim project.")
+    (main/info "Generating fresh 'lein new' sim-test project.")
     (->files data
              ["README.md" (render "README.md" data)]
              ["build.boot" (render "build.boot" data)]
