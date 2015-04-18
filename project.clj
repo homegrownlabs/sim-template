@@ -1,4 +1,4 @@
-(defproject sim/lein-template "0.1.0-SNAPSHOT"
+(defproject sim/lein-template "0.1.0"
   :description "Simulant project generator"
   :url "https://github.com/homegrownlabs/sim-template"
   :license {:name "The MIT License"
