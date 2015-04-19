@@ -8,7 +8,7 @@ own simulations off of..
 First, install [Leiningen](http://leiningen.org/), then generate a new sim:
 
 ```sh
-$ lein new sim my.org/simulation
+$ lein new sim-test my.org/simulation
 ```
 
 ## About the generated project
