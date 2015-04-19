@@ -15,6 +15,11 @@ If you're on Linux, just add `sudo` in front of that command.
 
 ## Interacting with the Simulation
 
+**This project is a little different from most Clojure projects; it uses
+[Boot](http://boot-clj.com/), rather than Leiningen. Follow the [installation
+instructions](https://github.com/boot-clj/boot#install) to install Boot on your
+machine.**
+
 Before attempting to interact with your simulation, you will need to start the
 target system, and (optionally) start a Datomic transactor.
 
