@@ -1,4 +1,4 @@
-# sim-template
+# sim-template [![Build Status](https://travis-ci.org/homegrownlabs/sim-template.svg?branch=master)](https://travis-ci.org/homegrownlabs/sim-template)
 
 A template for generating ready-to-use Simulant project that you can build your
 own simulations off of..
