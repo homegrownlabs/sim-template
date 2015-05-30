@@ -33,5 +33,5 @@
              ["resources/logback.xml" (render "resources/logback.xml" data)]
              ["resources/schema.edn" (render "resources/schema.edn" data)]
              ["resources/simulant.edn" (render "resources/simulant.edn" data)])
-    (main/info "Project generated. Please entery directory and run\n\n\tgit init . && git add . && git commit --message \"Project Generation - sim-template 0.1.2\"")))
+    (main/info "Project generated. Please entery directory and run\n\n\tgit init . && git add . && git commit --message \"Project Generation - sim-template 0.1.3\"")))
 
