@@ -24,7 +24,7 @@
 
 ;; 1. Create a model. Generally only happens when we tweak/refine our
 ;;    behavioral model.
-(def model (create-model! uri model-name "Created by example.clj"))
+(def model (create-model! uri model-name "Created by example.clj" :model.type/sample))
 ;; => {:db/id 123456789}
 
 ;; 2. Generate a test from that model. Happens slightly more frequently as we
