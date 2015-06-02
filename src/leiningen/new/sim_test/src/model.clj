@@ -69,7 +69,7 @@
   (let [conn     (d/connect uri)
         model-id (d/tempid :model)
         model    (cond-> {:db/id model-id
-                          :model/type :model.type/sample
+                          :model/type type
                           :model/name name
                           :source/codebase (util/codebase-ent :model)}
 
