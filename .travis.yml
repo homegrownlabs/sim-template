@@ -1,7 +1,10 @@
 language: clojure
-script: ./ci.sh
+script: "./ci.sh"
 jdk:
-  - openjdk6
-  - openjdk7
-  - oraclejdk7
-  - oraclejdk8
+- openjdk6
+- openjdk7
+- oraclejdk7
+- oraclejdk8
+notifications:
+  slack:
+    secure: f4t47OQtE+zVBqe1IMwaoUlSkyCkUUP2961I131zhFaXZnaUF/oTlBRmfx8yhl6/N/nbMhZz6/W70hvh6QmCbOa+PJrkVHf26ArTThBKE91KC/CQTqLTOeAeVsocrna7UrHqq30GHwa9KQB1ncyCvsIa3BAE8qGLFBPfUzwpOUM=
