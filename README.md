@@ -18,7 +18,7 @@ pre-requisites and instructions for running a sim.
 
 ## Attribution
 
-* [Simulant](github.com/datomic/simulant) by Metadata Partners. Licensed Under: [EPL](http://opensource.org/licenses/eclipse-1.0.php).
+* [Simulant](https://github.com/Datomic/simulant) by Metadata Partners. Licensed Under: [EPL](http://opensource.org/licenses/eclipse-1.0.php).
 * [simulant-example](https://github.com/mtnygard/simulant-example/) by [mtnygard](https://github.com/mtnygard/). Licensed Under: [EPL](http://opensource.org/licenses/eclipse-1.0.php). sim-template is heavily inspired by Michael's take on building a simulant test suite.
 
 ## License
